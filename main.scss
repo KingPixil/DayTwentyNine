@@ -1,0 +1,326 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  /* Location of the image */
+  background-image: url('https://images.unsplash.com/photo-1447876394678-42a7efa1b6db?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=e20dd23bf8f3008a1a0f81e153452d27');
+
+  /* Background image is centered vertically and horizontally at all times */
+  background-position: center center;
+
+  /* Background image doesn't tile */
+  background-repeat: no-repeat;
+
+  /* Background image is fixed in the viewport so that it doesn't move when
+     the content's height is greater than the image's height */
+  background-attachment: fixed;
+
+  /* This is what makes the background image rescale based
+     on the container's size */
+  background-size: cover;
+
+  /* Set a background color that will be displayed
+     while the background image is loading */
+  background-color: #464646;
+}
+
+.calculator {
+  width: 280px;
+  background-color: #F3F6F7;
+  box-shadow: 5px 5px 120px rgba(0, 0, 0, 0.2);
+  margin: calc(50vh - 200px) auto;
+  position: relative;
+}
+.calculator:after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+
+.clearbutton {
+  position: absolute;
+  font-family: "Droid Sans Mono";
+  top: 0;
+  right: 0;
+  width: 70px;
+  height: 70px;
+  opacity: 0.5;
+  cursor: pointer;
+  outline: none;
+  font-size: 20px;
+  text-align: center;
+  line-height: 70px;
+}
+.clearbutton:active {
+  line-height: 74px;
+  opacity: 1 !important;
+}
+.clearbutton:active:before {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #BDE8FD;
+  z-index: 1000;
+  opacity: 1;
+}
+.clearbutton:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#input, #result {
+  font-family: "Droid Sans Mono";
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  line-height: 20px;
+  font-size: 20px;
+  padding: 25px 23.33333px;
+  display: inline-block;
+  height: 70px;
+  outline: none;
+  opacity: 0.8;
+  float: left;
+}
+#input:focus, #result:focus {
+  opacity: 1;
+}
+#input#input, #result#input {
+  padding-right: 70px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+#input#result, #result#result {
+  cursor: pointer;
+}
+
+#result.error {
+  opacity: 0.2;
+}
+
+#screen {
+  background-color: #1F1C1B;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+#keys {
+  font-family: "Droid Sans Mono";
+}
+#keys div {
+  width: 25%;
+  float: left;
+  line-height: 70px;
+  position: relative;
+  height: 70px;
+  padding-left: 10.5%;
+  font-size: 20px;
+  outline: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#keys div:active {
+  line-height: 74px;
+}
+#keys div:active:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 2px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+#keys div.zero {
+  width: 50%;
+}
+#keys div.num:nth-child(1) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+#keys div.num:nth-child(1):active {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+#keys div.num:nth-child(2) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+#keys div.num:nth-child(2):active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+#keys div.num:nth-child(3) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+#keys div.num:nth-child(3):active {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+#keys div.num:nth-child(5) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+#keys div.num:nth-child(5):active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+#keys div.num:nth-child(6) {
+  background-color: transparent;
+}
+#keys div.num:nth-child(6):active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#keys div.num:nth-child(7) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+#keys div.num:nth-child(7):active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+#keys div.num:nth-child(9) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+#keys div.num:nth-child(9):active {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+#keys div.num:nth-child(10) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+#keys div.num:nth-child(10):active {
+  background-color: rgba(0, 0, 0, 0.12);
+}
+#keys div.num:nth-child(11) {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+#keys div.num:nth-child(11):active {
+  background-color: rgba(0, 0, 0, 0.14);
+}
+#keys div.num:nth-child(13) {
+  background-color: rgba(0, 0, 0, 0.045);
+}
+#keys div.num:nth-child(13):active {
+  background-color: rgba(0, 0, 0, 0.145);
+}
+#keys div.num:nth-child(14) {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+#keys div.num:nth-child(14):active {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+#keys div.op {
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+#keys div.op:nth-child(4) {
+  background-color: #e11744;
+}
+#keys div.op:nth-child(4):active {
+  background-color: #b21236;
+}
+#keys div.op:nth-child(8) {
+  background-color: #E81F4C;
+}
+#keys div.op:nth-child(8):active {
+  background-color: #c0143a;
+}
+#keys div.op:nth-child(12) {
+  background-color: #e11744;
+}
+#keys div.op:nth-child(12):active {
+  background-color: #b21236;
+}
+#keys div.op:nth-child(15) {
+  background-color: #d31640;
+}
+#keys div.op:nth-child(15):active {
+  background-color: #a51132;
+}
+#keys div:nth-child(13), #keys div:nth-child(14), #keys div:nth-child(15) {
+  height: 73px;
+}
+#keys div:nth-child(13):after, #keys div:nth-child(14):after, #keys div:nth-child(15):after {
+  content: '';
+  display: block;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+#keys div:nth-child(13):active:after, #keys div:nth-child(14):active:after, #keys div:nth-child(15):active:after {
+  height: 1px;
+}
+#keys div:nth-child(1):active:before, #keys div:nth-child(2):active:before, #keys div:nth-child(3):active:before, #keys div:nth-child(4):active:before {
+  background-color: #000;
+}
+#keys:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@media only screen and (max-device-width: 736px) {
+  .calculator {
+    width: 100vw !important;
+    margin: 0;
+  }
+
+  * {
+    font-size: 6.5vw !important;
+  }
+
+  .clearbutton {
+    width: 16.71vh;
+    height: 16.71vh;
+    line-height: 16.71vh;
+  }
+  .clearbutton:hover {
+    background-color: transparent;
+    color: #fff;
+    opacity: 0.5;
+  }
+  .clearbutton:active {
+    line-height: 16.71vh;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  #input, #result {
+    line-height: 20px;
+    padding: calc((16.71vh - 20px)/2) 11%;
+    height: 16.71vh;
+  }
+  #input#input, #result#input {
+    padding-right: calc(16.71vh + 11%);
+  }
+
+  #keys div {
+    height: 16.71vh;
+    line-height: 16.71vh;
+  }
+  #keys div:active {
+    line-height: 16.71vh;
+  }
+  #keys div:nth-child(13), #keys div:nth-child(14), #keys div:nth-child(15) {
+    height: inherit;
+  }
+}
